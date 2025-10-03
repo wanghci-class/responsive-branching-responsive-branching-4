@@ -61,13 +61,27 @@ To handle the "anchor links", you'll need to include an ev parameter in your eve
 
 1. Create a new file called `dark.css`
 1. edit your `index.html` to include a link to `dark.css` in the `head` of the document just before it links to `debug.css`
-1. edit `dark.css` such that if the user has a "dark" preference, the page will be styled with a dark theme.
-    1. What colors to use? Follow your heart! Make the background dark and the foreground light. Colors are great too.
+1. edit `dark.css` to add a rule for `.dark` and a rule for `.light`
+    1. Make it so that, if the body has the `dark` class, it will have a dark background and a light foreground.
+    1. If the body has the `light` class applied to it, it should have a light backgroudn and a dark foreground.
+    1. What exact colors to use? Follow your heart! Colors are great too.
+    2. Think of these two classes as an "override" -- if either is set, it overrides the user's color preference
+1. Test your styles by adding either the `light` or `dark` class to your `<body>` element and see if it changes color
+    1. Before continuing, remove all classes from the `<body>`.
+1. Now, edit `dark.css` such that if the user has a "dark" preference, the page will be styled with a dark theme.
+    1. Write two media queries that use the `prefers-color-scheme` query (linked in Helpful Resources)
+    1. If the preference is for light, style the body the same as the light class you did before.
+    1. If the preference is for dark, style the body the same as the dark class you did before.
 1. add a javascript file called script.js and a script tag to the bottom of the body of the html file that loads `script.js`.
 1. in `script.js`, add an event listener such that when the user clicks any of the 3 nav items, the page will render with the selected color scheme.
     1. The first thing you should do is call `ev.preventDefault()` ([see example](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault#blocking_default_click_handling)) or else the page will refresh instead of apply dark mode.
     1. Right now, it's difficult to get each link element... it would be nice if they each had a unique id...
     1. most often, dynamic styling is best implemented via (a) defining style rules for corresponding classes in css and (b) adding/removing classes to the necessary elements dynamically
+    1. Think about this:
+        1. If the user clicks on the "Dark Mode" link, it should override body to display with a dark theme... add the `dark` class!
+        2. But now, if the user clicks on the "Light Mode" link, adding the `light` class means that the `<body>` contains both... you should remove the other class before adding `light`!
+            1. Edit your "Dark Mode" link event handler to also remove the other class.
+        4. If the user clicks on "OS Default", you shouldn't have any overrides on the `<body>`... remove all the classes.
 
 # Acknowledgements
 
