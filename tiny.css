@@ -1,0 +1,8 @@
+@media (width <= 375px) {
+.wrapper{
+    visibility: hidden;
+    }
+.content{
+    visibility: visible;
+}
+}
