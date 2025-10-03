@@ -44,9 +44,12 @@ Add in a 3rd breakpoint to now have a 4th layout for the page: a "tiny" layout.
 1. accept the github classroom assignment linked from your canvas course
     * in doing so, tell github classroom that you're in a group with your neighbor
 1. both you and your neighbor: clone the repository to your local machines
-1. Replace the fake name in the `README.md`'s Acknowledgements with your own name.
+1. Replace the fake name (Nay Bored) at the bottom in the `README.md`'s Acknowledgements section with your own name.
 1. add the README.md changes to the staging area, commit the changes, and push the changes to the remote repository.
 1. edit the tiny.css such that when the viewport width is less than 375px, the layout changes such that only the "main article area" is displayed.
+    1. Use your browser's developer tools to shrink the viewport! Just resizing the browser window won't be small enough.
+    2. Scroll down; do you see other things "bunched up" in the bottom right?
+        1. Write another CSS rule in your media query to select these other sections and hide them (`display: none`)! 
 1. add the tiny.css changes to the staging area, commit the changes, and push the changes to the remote repository.
 
 ## Dark Mode
@@ -63,6 +66,7 @@ To handle the "anchor links", you'll need to include an ev parameter in your eve
 1. add a javascript file called script.js and a script tag to the bottom of the body of the html file that loads `script.js`.
 1. in `script.js`, add an event listener such that when the user clicks any of the 3 nav items, the page will render with the selected color scheme.
     1. The first thing you should do is call `ev.preventDefault()` ([see example](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault#blocking_default_click_handling)) or else the page will refresh instead of apply dark mode.
+    1. Right now, it's difficult to get each link element... it would be nice if they each had a unique id...
     1. most often, dynamic styling is best implemented via (a) defining style rules for corresponding classes in css and (b) adding/removing classes to the necessary elements dynamically
 
 # Acknowledgements
